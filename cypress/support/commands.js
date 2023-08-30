@@ -24,7 +24,14 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
-Cypress.Commands.add('selectCheckBoxRadioButton', (labelText, value) => {
+  Cypress.Commands.add('selectCheckBoxRadioButton', (labelText, value) => {
     cy.contains(labelText).click();
     cy.get(`[value="${value}"]`).should('be.checked');
+  });
+
+  Cypress.Commands.add("resizeBox", (element, clientX, clientY) => {
+    cy.get(element)
+      .trigger("mousedown", { button: 0, force: true })
+      .trigger("mousemove", { clientX, clientY, force: true })
+      .trigger("mouseup", { force: true });
   });
