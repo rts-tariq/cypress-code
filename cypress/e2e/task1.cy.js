@@ -13,9 +13,8 @@ describe('Form Submission Test', () => {
         cy.get('#subjectsInput').type('Computer Science').type('{enter}');
         cy.selectCheckBoxRadioButton('Music', '3');
         cy.get('#currentAddress').type('Address 1');
-    //   cy.get('#react-select-3-input').should('be.visible').type('NCR', {force: true}).type('{enter}');
-        cy.get('#react-select-3-input').invoke('val', 'NCR').type('{enter}');
-      //cy.get('#react-select-4-input').should('be.visible').click({force: true}).type('Delhi').type('{enter}');
+        cy.get('#react-select-3-input').should('be.visible').type('NCR', {force: true}).type('{enter}');
+        cy.get('#react-select-4-input').should('be.visible').click({force: true}).type('Delhi').type('{enter}');
 
         cy.get('#submit').click({force: true});
   
